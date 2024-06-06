@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import EstateCard from "./EstateCard";
+import 'animate.css';
 
 
 const Estate = () => {
@@ -7,8 +8,9 @@ const Estate = () => {
     console.log(estate);
     return (
         <div className="my-20 bg-blue-50 px-8">
-            <h1 className="text-4xl font-medium text-center font-display pt-16 border-b-2 border-blue-200 border-dashed pb-8">Uncover Featured Listings</h1>
-            <div className="grid md:grid-cols-3 gap-8 py-12">
+            <h1 className="text-4xl font-medium text-center font-display pt-16 pb-8 animate__animated animate__bounceInDown">Uncover Featured Listings</h1>
+            <div className="flex justify-center"><p className="border w-1/2 border-[#ba8759]"></p></div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
                 {
                     estate.map(eData => <EstateCard key={eData.id} eData={eData}></EstateCard>)
                 }

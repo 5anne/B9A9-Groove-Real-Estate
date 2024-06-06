@@ -36,7 +36,7 @@ const EstateDetails = () => {
             </Helmet>
             <Navbar></Navbar>
             <div className="flex justify-center my-12 py-12 px-4 mx-8 bg-slate-100">
-                <div className="w-1/2">
+                <div className="lg:w-1/2">
                     <h1 className="font-bold font-display text-2xl mb-4">{estate_title}</h1>
                     <img src={image} alt="" />
                     <div className="bg-white p-4 leading-relaxed">
@@ -50,7 +50,7 @@ const EstateDetails = () => {
                                 facilities.map((facility, idx) => <li key={idx}>{facility}</li>)
                             }
                         </div>
-                        <div className="flex gap-8 items-center font-display text-2xl font-semibold my-4">
+                        <div className="flex gap-8 items-center font-display text-xl md:text-2xl font-semibold my-4">
                             <p>Status: {status}</p>
                             <p>Area: {area}</p>
                         </div>

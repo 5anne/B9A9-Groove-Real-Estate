@@ -2,9 +2,32 @@ import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
+
+    const handleSignIn = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        console.log(form);
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(email);
+        console.log(password);
+
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
+
     return (
         <div>
             <Helmet>
@@ -13,7 +36,7 @@ const Login = () => {
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-                    <form className="card-body bg-base-200">
+                    <form onSubmit={handleSignIn} className="card-body bg-base-200">
                         <h2 className="border-b-2 py-2 border-[#ba8759] text-lg text-center">LOG IN</h2>
                         <div className="form-control">
                             <label className="label">

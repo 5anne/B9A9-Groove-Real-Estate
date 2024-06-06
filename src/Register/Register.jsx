@@ -2,9 +2,72 @@ import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+    const [regError, setRegError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [show, setShow] = useState(false);
+    const [photo, setPhoto] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
+    // console.log(previewUrl);
+
+    const handlePhotoChange = (event) => {
+        const file = event.target.files[0];
+        setPhoto(file);
+    };
+
+    useEffect(() => {
+        if (photo) {
+            const reader = new FileReader();
+            reader.onload = (e) => setPreviewUrl(e.target.result);
+            reader.readAsDataURL(photo);
+        }
+    }, [photo]);
+
+    const handleRegister = e => {
+        e.preventDefault();
+        // console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        form.append('photo', photo);
+        // console.log(form);
+        // const name = form.get('name');
+        // const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+        // console.log(name);
+        // console.log(photo);
+        // console.log(email);      
+        // console.log(password);
+
+        setRegError('');
+        setSuccess('');
+
+        if (password.length < 6) {
+            setRegError('Password should be at least 6 characters!');
+            return;
+        }
+        else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/.test(password)) {
+            setRegError('Your password should contain at least an upper case, lower case and number!');
+            return;
+        }
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                setSuccess('Successfully Registered!');
+            })
+            .catch(error => {
+                console.error(error);
+                setRegError(error.message);
+            })
+        setPhoto(null);
+    }
+
     return (
         <div>
             <Helmet>
@@ -12,8 +75,8 @@ const Register = () => {
             </Helmet>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
-                <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-                    <form className="card-body bg-base-200">
+                <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100 my-10">
+                    <form onSubmit={handleRegister} className="card-body bg-base-200">
                         <h2 className="border-b-2 py-2 border-[#ba8759] text-lg text-center">REGISTER</h2>
                         <div className="form-control">
                             <label className="label">
@@ -25,7 +88,10 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="" placeholder="Photo URL" name="photo" className="input rounded-none input-bordered" required />
+                            <input type="file" id="photo" placeholder="Photo URL" name="photo" accept="image/*" onChange={handlePhotoChange} className="input rounded-none input-bordered py-2" required />
+                            {photo && (
+                                <img src={URL.createObjectURL(photo)} alt="Preview" width="100" />
+                            )}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -33,15 +99,24 @@ const Register = () => {
                             </label>
                             <input type="email" placeholder="Email" name="email" className="input rounded-none input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="******" name="password" className="input rounded-none input-bordered" required />
-                            <div className="flex justify-between items-center gap-2 my-4">
+                            <input type={show ? 'text' : 'password'} placeholder="******" name="password" className="input rounded-none input-bordered" required />
+                            <span className="absolute right-8 top-[54px]" onClick={() => { setShow(!show) }}>{show ? <IoIosEye /> : <IoIosEyeOff />}</span>
+                            <div className="flex justify-between items-center gap-2 mt-4">
                                 <button className="bg-[#ba8759] w-1/2 px-6 py-3 text-white font-semibold text-lg">Register</button>
                                 <a href="#" className="label-text-alt link link-hover text-center text-base font-semibold w-1/2">Forgot password?</a>
                             </div>
+                        </div>
+                        <div>
+                            {
+                                regError && <p className="text-red-700 text-center">{regError}</p>
+                            }
+                            {
+                                success && <p className="text-green-700 text-center">{success}</p>
+                            }
                         </div>
                         <div>
                             <button className="bg-[#ba160c] w-full py-2 text-white text-xs">LOG IN WITH GOOGLE</button>
