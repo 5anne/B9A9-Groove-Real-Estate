@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
     return (
         <div>
+            <Helmet>
+                <title>Groove Real Estate | Register</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" shrink-0 w-full max-w-sm shadow-xl bg-base-100">

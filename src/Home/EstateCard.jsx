@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const EstateCard = ({ eData }) => {
@@ -14,7 +15,7 @@ const EstateCard = ({ eData }) => {
                 </div>
                 <div className="flex justify-between items-center mt-4">
                     <p className="font-extrabold text-3xl text-[#ba8759] font-display">{price} BDT</p>
-                    <button className="text-gray-300 font-medium text-base bg-[#43302e] py-3 px-4 hover:bg-[#43302e80]">View Property</button>
+                    <Link to={`/details/${id}`}><button className="text-gray-300 font-medium text-base bg-[#43302e] py-3 px-4 hover:bg-[#43302e80]">View Property</button></Link>
                 </div>
             </div>
         </div>
