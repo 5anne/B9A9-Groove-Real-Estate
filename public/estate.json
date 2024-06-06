@@ -1,0 +1,162 @@
+[
+    {
+        "image": "https://i.postimg.cc/gk2Xjpzb/IM01-15-700x350.jpg",
+        "estate_title": "Spacious Single-Family Home with Garage",
+        "id": 1,
+        "segment_name": "Single-Family Home",
+        "description": "This well-maintained single-family home offers ample space for families and includes a convenient garage.",
+        "price": 42000000,
+        "status": "sale",
+        "area": "3200 sq ft",
+        "location": "Mohakhali, Dhaka",
+        "facilities": [
+            "Living Room",
+            "Dining Room",
+            "Bedrooms: 4",
+            "Bathrooms: 3",
+            "Garage",
+            "Backyard"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/QM1Vwxb1/801e8da6146861e711d9099889bbb39f-terraced-house.jpg",
+        "estate_title": "Modern Townhouse with Rooftop Patio",
+        "id": 2,
+        "segment_name": "Townhouse",
+        "description": "Enjoy a modern living experience with a rooftop patio in this centrally located townhouse.",
+        "price": 50000,
+        "status": "rent",
+        "area": "1600 sq ft",
+        "location": "Gulshan, Dhaka",
+        "facilities": [
+            "Living Room",
+            "Dining Room",
+            "Bedrooms: 3",
+            "Rooftop Patio",
+            "In-Unit Washer/Dryer"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/7LzZN466/R.jpg",
+        "estate_title": "Studio Apartment in Lively Neighborhood",
+        "id": 3,
+        "segment_name": "Apartment",
+        "description": "Live in the heart of the action with this studio apartment close to shops, restaurants, and nightlife.",
+        "price": 3000,
+        "status": "rent",
+        "area": "400 sq ft",
+        "location": "Chittagong",
+        "facilities": [
+            "Living Room (combined with bedroom)",
+            "On-Site Laundry",
+            "Security System"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/zBpDYLRb/EHS-New-Yorker-Double-Room.jpg",
+        "estate_title": "Affordable Student Housing with On-Site Gym",
+        "id": 4,
+        "segment_name": "Student Housing",
+        "description": "This affordable student housing option offers comfortable living and access to an on-site gym.",
+        "price": 2000,
+        "status": "rent",
+        "area": "250 sq ft (per room)",
+        "location": "Dhanmondi, Dhaka",
+        "facilities": [
+            "Shared Living Room",
+            "Study Lounge",
+            "On-Site Gym",
+            "Laundry Facilities"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/y6Q6fZH2/senior-al-pool-design.jpg",
+        "estate_title": "Active Senior Living Community with Pool",
+        "id": 5,
+        "segment_name": "Senior Living Community",
+        "description": "Enjoy an active lifestyle with social events, a pool, and on-site healthcare services in this senior living community.",
+        "price": 30000,
+        "status": "rent",
+        "area": "2800 sq ft",
+        "location": "Baridhara, Dhaka",
+        "facilities": [
+            "Community Center",
+            "Pool",
+            "Fitness Classes",
+            "On-Site Healthcare Services",
+            "Pet-Friendly"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/fRXwTq9h/Amaravida-phuket-middle-pool-1200-1.jpg",
+        "estate_title": "Luxurious Beachfront Vacation Rental with Private Pool",
+        "id": 6,
+        "segment_name": "Vacation Rental",
+        "description": "Unwind and enjoy the ocean views from this luxurious beachfront vacation rental with a private pool.",
+        "price": 10000,
+        "status": "rent",
+        "area": "2800 sq ft",
+        "location": "Saint Martin's Island",
+        "facilities": [
+            "Living Room",
+            "Dining Room",
+            "Bedrooms: 5",
+            "Bathrooms: 4",
+            "Private Pool",
+            "Beachfront Access"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/s24s5Bm6/7d0f171e-b72b-4339-936f-1e0ed121f475.webp",
+        "estate_title": "Converted Loft with Exposed Brick Walls",
+        "id": 7,
+        "segment_name": "Apartment",
+        "description": "Experience a unique living space in this converted loft featuring exposed brick walls and high ceilings.",
+        "price": 28000,
+        "status": "rent",
+        "area": "1000 sq ft",
+        "location": "Gulshan, Dhaka",
+        "facilities": [
+            "Living Room",
+            "Kitchen",
+            "Bedroom (open floor plan)",
+            "Bathroom",
+            "In-Unit Washer/Dryer"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/fTSpyRgJ/pngtree-d-rendering-of-studio-room-with-spacious-layout-and-high-quality-image-13553656.png",
+        "estate_title": "Furnished Studio with Utilities Included",
+        "id": 8,
+        "segment_name": "Studio Apartment",
+        "description": "Move right in with this furnished studio apartment with utilities included in the rent.",
+        "price": 8000,
+        "status": "rent",
+        "area": "350 sq ft",
+        "location": "Mohakhali, Dhaka",
+        "facilities": [
+            "Living Room (combined with bedroom)",
+            "Furnished",
+            "Utilities Included",
+            "On-Site Laundry"
+        ]
+    },
+    {
+        "image": "https://i.postimg.cc/50ZGScXx/20180522110435-1.jpg",
+        "estate_title": "Eco-Friendly Tiny House with Stunning Mountain Views",
+        "id": 9,
+        "segment_name": "Vacation Rental",
+        "description": "Embrace a minimalist lifestyle and enjoy breathtaking mountain views in this eco-friendly tiny house.",
+        "price": 5000,
+        "status": "rent",
+        "area": "200 sq ft",
+        "location": "Sylhet",
+        "facilities": [
+            "Living Area (combined)",
+            "Kitchenette",
+            "Bathroom",
+            "Deck with Mountain Views",
+            "Eco-Friendly Amenities"
+        ]
+    }
+]
