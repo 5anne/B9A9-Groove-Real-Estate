@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Top 10 Trending Décor Ideas for 2024",
+        "image": "https://i.postimg.cc/136fnRN4/tr-69788ce4-18af-4676-bd04-15ab0b7f8819-776827-1-elsie-userview-1.jpg",
+        "publishedDate": "June 07, 2024",
+        "category": "Décor",
+        "author": "Jane Doe",
+        "comments": 15,
+        "excerpt": "From bold colors to cozy textures, discover the hottest décor trends that will transform your space in no time."
+    },
+    {
+        "id": 2,
+        "title": "Building a Deck: A Step-by-Step Guide for Beginners",
+        "image": "https://i.postimg.cc/MTZ7mfy9/869e6fa79469f7ca6e6732fbca2092a5.jpg",
+        "publishedDate": "May 20, 2024",
+        "category": "Design",
+        "author": "John Smith",
+        "comments": 3,
+        "excerpt": "Turn your backyard into an oasis with our beginner-friendly guide to building your own deck."
+    },
+    {
+        "id": 3,
+        "title": "Essential Home Maintenance Tips for Every Season",
+        "image": "https://i.postimg.cc/52HS9W5V/Hiring-Home-COntractor-525.jpg",
+        "publishedDate": "April 04, 2024",
+        "category": "Maintain",
+        "author": "Maintenance Experts",
+        "comments": 7,
+        "excerpt": "Learn how to keep your home in top shape year-round with these easy-to-follow maintenance tips and tricks."
+    },
+    {
+        "id": 4,
+        "title": "Creating a Cozy Reading Nook: Tips & Inspiration",
+        "image": "https://i.postimg.cc/mrkcdS4p/large-attic-room-with-cozy-sitting-area-bookshelves-window-view-124507-134772-1.avif",
+        "publishedDate": "April 20, 2024",
+        "category": "Décor",
+        "author": "Bookworm Blog",
+        "comments": 11,
+        "excerpt": "Unwind and delve into your favorite books in a dedicated reading nook designed for ultimate comfort."
+    },
+    {
+        "id": 5,
+        "title": "Sustainable Home Design: Eco-Friendly Tips for a Greener Future",
+        "image": "https://i.postimg.cc/J0Nty630/R-1.jpg",
+        "publishedDate": "March 05, 2024",
+        "category": "Design",
+        "author": "Green Living Advocate",
+        "comments": 22,
+        "excerpt": "Make a positive impact on the environment while creating a beautiful and functional home with sustainable design principles."
+    },
+    {
+        "id": 6,
+        "title": "Maintaining Your Kitchen: Simple Habits for Lasting Shine",
+        "image": "https://i.postimg.cc/qqP6SN3V/image5.png",
+        "publishedDate": "March 09, 2024",
+        "category": "Maintain",
+        "author": "Clean Kitchen Crew",
+        "comments": 8,
+        "excerpt": "Prevent grime buildup and keep your kitchen sparkling with these easy-to-implement cleaning and maintenance routines."
+    }
+]

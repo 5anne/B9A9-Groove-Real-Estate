@@ -19,7 +19,14 @@ const Navbar = () => {
     const links = <>
         <NavLink className={({ isActive }) => (isActive && 'text-lime-500 hover:underline')} to="/">Home</NavLink>
         <NavLink className={({ isActive }) => (isActive && 'text-lime-500 hover:underline')} to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink className={({ isActive }) => (isActive && 'text-lime-500 hover:underline')} to="/contact">Contact</NavLink>
+        {
+            user &&
+            <>
+                <NavLink className={({ isActive }) => (isActive && 'text-lime-500 hover:underline')} to="/blog">Blog</NavLink>
+                <NavLink className={({ isActive }) => (isActive && 'text-lime-500 hover:underline')} to="/user_profile">Profile</NavLink>
+            </>
+        }
     </>
     return (
         <div className="bg-[#100c08] py-6">
