@@ -1,29 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const [regError, setRegError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSignIn = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        console.log(form);
+        // console.log(form);
         const email = form.get('email');
         const password = form.get('password');
         console.log(email);
         console.log(password);
 
+        setRegError('');
+
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                e.target.reset();
+                navigate('/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
+                setRegError('Invalid Email-ID or Password!');
             })
 
     }
@@ -49,11 +58,14 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="******" name="password" className="input rounded-none input-bordered" required />
-                            <div className="flex justify-between items-center gap-2 my-4">
+                            <div className="flex justify-between items-center gap-2 mt-4 mb-2">
                                 <button className="bg-[#ba8759] w-1/2 px-6 py-3 text-white font-semibold text-lg">Login</button>
                                 <a href="#" className="label-text-alt link link-hover text-center text-base font-semibold w-1/2">Forgot password?</a>
                             </div>
                         </div>
+                        {
+                            regError && <p className="text-red-700 text-center">{regError}</p>
+                        }
                         <div>
                             <button className="bg-[#ba160c] w-full py-2 text-white text-xs">LOG IN WITH GOOGLE</button>
                             <button className="bg-[#00416a] w-full py-2 text-white text-xs mt-4">LOG IN WITH FACEBOOK</button>

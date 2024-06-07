@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -12,37 +13,26 @@ const Register = () => {
     const [regError, setRegError] = useState('');
     const [success, setSuccess] = useState('');
     const [show, setShow] = useState(false);
-    const [photo, setPhoto] = useState(null);
-    const [previewUrl, setPreviewUrl] = useState(null);
-    // console.log(previewUrl);
+    const [file, setFile] = useState();
 
-    const handlePhotoChange = (event) => {
-        const file = event.target.files[0];
-        setPhoto(file);
-    };
-
-    useEffect(() => {
-        if (photo) {
-            const reader = new FileReader();
-            reader.onload = (e) => setPreviewUrl(e.target.result);
-            reader.readAsDataURL(photo);
-        }
-    }, [photo]);
+    const handleChange = e => {
+        setFile(URL.createObjectURL(e.target.files[0]));
+    }
 
     const handleRegister = e => {
         e.preventDefault();
         // console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
-        form.append('photo', photo);
         // console.log(form);
-        // const name = form.get('name');
-        // const photo = form.get('photo');
+        const name = form.get('name');
+        const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        // console.log(name);
-        // console.log(photo);
-        // console.log(email);      
-        // console.log(password);
+        console.log(name);
+        console.log(photo);
+        console.log(email);
+        console.log(password);
+
 
         setRegError('');
         setSuccess('');
@@ -60,12 +50,18 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setSuccess('Successfully Registered!');
+
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: file
+                })
+                    .then(() => console.log('profile updated'))
+                    .catch(error => console.error(error))
             })
             .catch(error => {
                 console.error(error);
                 setRegError(error.message);
             })
-        setPhoto(null);
     }
 
     return (
@@ -88,10 +84,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="file" id="photo" placeholder="Photo URL" name="photo" accept="image/*" onChange={handlePhotoChange} className="input rounded-none input-bordered py-2" required />
-                            {photo && (
-                                <img src={URL.createObjectURL(photo)} alt="Preview" width="100" />
-                            )}
+                            <input type="file" onChange={handleChange} accept="image/*" placeholder="Photo URL" name="photo" className="input rounded-none input-bordered py-2" required />
                         </div>
                         <div className="form-control">
                             <label className="label">

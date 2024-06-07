@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const EstateCard = ({ eData }) => {
-    const { id, image, estate_title, segment_name, description, price, status, area, location, facilities } = eData;
+    const { id, image, estate_title, price, status, area, location } = eData;
     return (
         <div className="h-full">
             <img className="h-[200px] w-full" src={image} alt="" />
