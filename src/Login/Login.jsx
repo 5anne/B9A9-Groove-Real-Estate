@@ -4,10 +4,12 @@ import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
     const [regError, setRegError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -35,6 +37,26 @@ const Login = () => {
                 setRegError('Invalid Email-ID or Password!');
             })
 
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleGithub = () => {
+        signInWithGitHub()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -67,8 +89,8 @@ const Login = () => {
                             regError && <p className="text-red-700 text-center">{regError}</p>
                         }
                         <div>
-                            <button className="bg-[#ba160c] w-full py-2 text-white text-xs">LOG IN WITH GOOGLE</button>
-                            <button className="bg-[#00416a] w-full py-2 text-white text-xs mt-4">LOG IN WITH FACEBOOK</button>
+                            <button onClick={handleGoogleSignIn} className="bg-[#d3d3d3] w-full py-2 text-black font-semibold text-xs flex justify-center gap-2 items-center"><span className="text-xl"><FcGoogle /></span>LOG IN WITH GOOGLE</button>
+                            <button onClick={handleGithub} className="bg-[#555555] w-full py-2 text-white font-semibold text-xs flex justify-center gap-2 items-center mt-4"><span className="text-xl"><FaGithub /></span>LOG IN WITH GITHUB</button>
                         </div>
                         <p className="text-xs text-center">Do Not Have an Account? Please <Link className="text-blue-800 hover:underline" to="/register">Register</Link></p>
                     </form>

@@ -9,7 +9,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col-reverse md:flex-row justify-between items-start text-white py-12">
                 <div className="leading-loose my-4 md:my-0">
-                    <h1 className="text-gray-300 font-semibold">GROOVE REAL ESTATE</h1>
+                    <h1 className="text-gray-300 font-semibold">GROOVE REAL ESTATE INC.</h1>
                     <p className="text-gray-400 text-sm">Copyright © 2024 - All right reserved</p>
                 </div>
                 <nav className="my-4 md:my-0">
