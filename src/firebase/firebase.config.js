@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('inside firebase config', import.meta.env.VITE_PASS)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCu7lK72LkjJuD9FNVI5Agk8sAOLF3BvDw",
-  authDomain: "groove-real-estate-44a4b.firebaseapp.com",
-  projectId: "groove-real-estate-44a4b",
-  storageBucket: "groove-real-estate-44a4b.appspot.com",
-  messagingSenderId: "1051651980073",
-  appId: "1:1051651980073:web:215dcb17aabfe6c6b7d538"
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

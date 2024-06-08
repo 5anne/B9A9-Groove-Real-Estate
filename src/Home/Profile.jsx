@@ -9,7 +9,7 @@ import { updateProfile } from "firebase/auth";
 const Profile = () => {
     const { user } = useContext(AuthContext);
     const { displayName, photoURL, email } = user;
-    console.log(displayName, photoURL, email);
+    // console.log(displayName, photoURL, email);
     const [active, setActive] = useState(false);
     const [update, setUpdate] = useState(false);
     const [name, setName] = useState('');
@@ -24,14 +24,14 @@ const Profile = () => {
     const handleUpdate = e => {
         e.preventDefault();
         const upname = inputRef.current.value;
-        console.log(upname);
+        // console.log(upname);
         setUpdate(true);
         setName(upname);
     }
 
     const handleChanges = e => {
         e.preventDefault();
-        console.log(name);
+        // console.log(name);
         updateProfile(user, {
             displayName: name
         })
@@ -54,7 +54,7 @@ const Profile = () => {
                     <h1 className="text-4xl font-medium text-center font-display pb-8">User Login Info</h1>
                     <div className="flex justify-center"><p className="border w-40 border-[#ba8759]"></p></div>
                     <div className="flex justify-center my-8">
-                        <img src={photoURL} alt="" />
+                        <img className="w-[150px]" src={photoURL} alt="" />
                     </div>
                     <div className="flex justify-center my-8">
                         <form action="">

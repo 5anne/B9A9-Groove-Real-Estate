@@ -8,6 +8,7 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import swal from 'sweetalert';
 
 
 const Register = () => {
@@ -29,13 +30,13 @@ const Register = () => {
         const form = new FormData(e.currentTarget);
         // console.log(form);
         const name = form.get('name');
-        const photo = form.get('photo');
+        // const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        console.log(name);
-        console.log(photo);
-        console.log(email);
-        console.log(password);
+        // console.log(name);
+        // console.log(photo);
+        // console.log(email);
+        // console.log(password);
 
 
         setRegError('');
@@ -54,6 +55,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setSuccess('Successfully Registered!');
+                swal("Successfully Registered!");
 
                 updateProfile(result.user, {
                     displayName: name,
@@ -64,6 +66,7 @@ const Register = () => {
 
                 e.target.reset();
                 navigate(location?.state ? location.state : '/');
+
             })
             .catch(error => {
                 console.error(error);

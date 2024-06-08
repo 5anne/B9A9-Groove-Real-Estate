@@ -5,7 +5,7 @@ import 'animate.css';
 
 const Estate = () => {
     const estate = useLoaderData();
-    console.log(estate);
+    // console.log(estate);
     return (
         <div className="my-20 bg-blue-50 px-8">
             <h1 className="text-4xl font-medium text-center font-display pt-16 pb-8 animate__animated animate__bounce">Uncover Featured Listings</h1>

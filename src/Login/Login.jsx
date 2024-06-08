@@ -20,8 +20,8 @@ const Login = () => {
         // console.log(form);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email);
-        console.log(password);
+        // console.log(email);
+        // console.log(password);
 
         setRegError('');
 

@@ -9,8 +9,8 @@ const EstateDetails = () => {
     const { id } = useParams();
     const idInt = parseInt(id);
 
-    console.log(details);
-    console.log(id);
+    // console.log(details);
+    // console.log(id);
 
     const [eData, setEData] = useState([]);
     const [loading, setLoading] = useState(true);
