@@ -1,3 +1,15 @@
+## Website Name
+
+-Groove Real Estate Inc.
+
+## Features
+
+- Log in with Google or GitHub
+- Private Route set up
+- User's Profile
+- Edit and Save Changes the Log In Info
+- Dynamic Page title
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
