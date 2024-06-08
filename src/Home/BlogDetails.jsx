@@ -12,7 +12,7 @@ const BlogDetails = ({ blog }) => {
                     <p className="text-gray-700">{publishedDate}</p>
                     <p className="text-gray-700">#{category}</p>
                 </div>
-                <h1 className="text-black text-xl font-semibold">{title}</h1>
+                <h1 className="text-black text-lg md:text-xl font-semibold">{title}</h1>
                 <p className="font-display">{excerpt}</p>
                 <div className="flex justify-between items-center mt-2">
                     <p className="text-gray-950 font-semibold">#{author}</p>

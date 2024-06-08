@@ -50,7 +50,7 @@ const EstateDetails = () => {
                                 facilities.map((facility, idx) => <li key={idx}>{facility}</li>)
                             }
                         </div>
-                        <div className="flex gap-8 items-center font-display text-xl md:text-2xl font-semibold my-4">
+                        <div className="flex flex-col md:flex-row md:gap-8 md:items-center font-display text-xl md:text-2xl font-semibold my-4">
                             <p>Status: {status}</p>
                             <p>Area: {area}</p>
                         </div>

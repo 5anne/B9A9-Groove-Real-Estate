@@ -1,19 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
     const [regError, setRegError] = useState('');
     const [success, setSuccess] = useState('');
     const [show, setShow] = useState(false);
     const [file, setFile] = useState();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleChange = e => {
         setFile(URL.createObjectURL(e.target.files[0]));
@@ -57,10 +61,33 @@ const Register = () => {
                 })
                     .then(() => console.log('profile updated'))
                     .catch(error => console.error(error))
+
+                e.target.reset();
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
                 setRegError(error.message);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleGithub = () => {
+        signInWithGitHub()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
             })
     }
 
@@ -112,8 +139,8 @@ const Register = () => {
                             }
                         </div>
                         <div>
-                            <button className="bg-[#ba160c] w-full py-2 text-white text-xs">LOG IN WITH GOOGLE</button>
-                            <button className="bg-[#00416a] w-full py-2 text-white text-xs mt-4">LOG IN WITH FACEBOOK</button>
+                            <button onClick={handleGoogleSignIn} className="bg-[#d3d3d3] w-full py-2 text-black font-semibold text-xs flex justify-center gap-2 items-center"><span className="text-xl"><FcGoogle /></span>LOG IN WITH GOOGLE</button>
+                            <button onClick={handleGithub} className="bg-[#555555] w-full py-2 text-white font-semibold text-xs flex justify-center gap-2 items-center mt-4"><span className="text-xl"><FaGithub /></span>LOG IN WITH GITHUB</button>
                         </div>
                         <p className="text-xs text-center">Already Have an Account? Please <Link className="text-blue-800 hover:underline" to="/login">Login</Link></p>
                     </form>
