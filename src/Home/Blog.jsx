@@ -1,12 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
-import { useLoaderData } from "react-router-dom";
 import BlogDetails from "./BlogDetails";
+import { useEffect, useState } from "react";
 
 
 const Blog = () => {
-    const blogData = useLoaderData();
+    const [blogData, setBlogData] = useState([]);
+    useEffect(() => {
+        fetch('/blog.json')
+            .then(res => res.json())
+            .then(data => setBlogData(data))
+    }, [])
     return (
         <div>
             <Helmet>
@@ -30,7 +35,7 @@ const Blog = () => {
                 <div className="flex justify-center"><p className="border w-40 border-[#ba8759]"></p></div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
                     {
-                        blogData.map(blog => <BlogDetails key={blog.id} blog={blog}></BlogDetails>)
+                        blogData?.map(blog => <BlogDetails key={blog.id} blog={blog}></BlogDetails>)
                     }
                 </div>
                 <div className="flex justify-center">
